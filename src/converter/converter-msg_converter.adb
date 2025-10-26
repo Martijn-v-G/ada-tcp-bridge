@@ -1,3 +1,4 @@
+with Messages.Message_Types;
 package body Converter.Msg_Converter is
 
    function Reverse_String (S : String) return String is
@@ -14,6 +15,7 @@ package body Converter.Msg_Converter is
       Result : Messages.Message_Pong.Message;
    begin
       Result.Payload := Reverse_String (Msg.Payload);
+      Result.Hdr.Msg_Type := Messages.Message_Types.Message_Type_Pong;
       return Result;
    end To_Pong;
 
@@ -22,6 +24,7 @@ package body Converter.Msg_Converter is
       Result : Messages.Message_Ping.Message;
    begin
       Result.Payload := Reverse_String (Msg.Payload);
+      Result.Hdr.Msg_Type := Messages.Message_Types.Message_Type_Ping;
       return Result;
    end To_Ping;
 
