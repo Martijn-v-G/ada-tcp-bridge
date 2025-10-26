@@ -1,0 +1,22 @@
+Compile
+   [Ada]          converter.ads
+Bind
+   [gprbind]      test_runner.bexch
+   [Ada]          test_runner.ali
+Link
+   [link]         test_runner.adb
+[Codec.Ping::Encode] Encoding header with Msg_Type: 1 (2 bytes)
+[Codec.Ping::Encode] Encoding payload with content: 'HELO' (4 bytes)
+[Codec.Ping::Decode] Decoded header with Msg_Type: 1 (2 bytes)
+[Codec.Ping::Decode] Decoded payload with content: 'HELO' (4 bytes)
+[Msg_Converter::To_Pong] IN [Type= 1 Payload=HELO]  ==> OUT [Type= 2 Payload=OLEH]
+[Msg_Converter::To_Ping] IN [Type= 2 Payload=OLEH]  ==> OUT [Type= 1 Payload=HELO]
+
+OK Codec Tests : Test Encode and Decode of Ping message
+OK Converter Tests : Test convert Ping to Pong message
+OK Converter Tests : Test convert Pong to Ping message
+
+Total Tests Run:   3
+Successful Tests:  3
+Failed Assertions: 0
+Unexpected Errors: 0
