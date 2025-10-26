@@ -17,13 +17,13 @@ package body Codec.Ping is
       I     : Stream_Element_Offset := 1;
    begin
       -- Encode header (little endian)
-      Put_Line ("[Encode] Encoding header with Msg_Type:" & Integer'Image (Integer (Msg.Hdr.Msg_Type)) & " (2 bytes)");
+      Put_Line ("[Codec.Ping::Encode] Encoding header with Msg_Type:" & Integer'Image (Integer (Msg.Hdr.Msg_Type)) & " (2 bytes)");
       Bytes (I)     := Stream_Element (Msg.Hdr.Msg_Type and 16#FF#);
       Bytes (I + 1) := Stream_Element (Shift_Right (Msg.Hdr.Msg_Type, 8));
       I := I + 2;
 
       -- Encode payload (ASCII)
-      Put_Line ("[Encode] Encoding payload with content: '" & Msg.Payload & "' (4 bytes)");
+      Put_Line ("[Codec.Ping::Encode] Encoding payload with content: '" & Msg.Payload & "' (4 bytes)");
       for C of Msg.Payload loop
          Bytes (I) := Stream_Element (Character'Pos (C));
          I := I + 1;
@@ -50,14 +50,14 @@ package body Codec.Ping is
          Msg.Hdr.Msg_Type := Low or High;
       end;
       I := I + 2;
-      Put_Line ("[Decode] Decoded header with Msg_Type:" & Integer'Image (Integer (Msg.Hdr.Msg_Type)) & " (2 bytes)");
+      Put_Line ("[COdec.Ping::Decode] Decoded header with Msg_Type:" & Integer'Image (Integer (Msg.Hdr.Msg_Type)) & " (2 bytes)");
 
       -- Decode payload (4 ASCII bytes)
       for J in Msg.Payload'Range loop
          Msg.Payload (J) := Character'Val (Integer (Data (I)));
          I := I + 1;
       end loop;
-      Put_Line ("[Decode] Decoded payload with content: '" & Msg.Payload & "' (4 bytes)");
+      Put_Line ("[Codec.Ping::Decode] Decoded payload with content: '" & Msg.Payload & "' (4 bytes)");
 
       return Msg;
    end Decode;

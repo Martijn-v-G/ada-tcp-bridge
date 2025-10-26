@@ -1,4 +1,6 @@
 with Messages.Message_Types;
+with Ada.Text_IO; use Ada.Text_IO;
+
 package body Converter.Msg_Converter is
 
    function Reverse_String (S : String) return String is
@@ -16,6 +18,9 @@ package body Converter.Msg_Converter is
    begin
       Result.Payload := Reverse_String (Msg.Payload);
       Result.Hdr.Msg_Type := Messages.Message_Types.Message_Type_Pong;
+      Put_Line ("[Msg_Converter::To_Pong] IN [Type=" & Integer'Image (Integer (Msg.Hdr.Msg_Type))&
+       " Payload=" &Msg.Payload & "]  ==> OUT [Type=" & Integer'Image (Integer (Result.Hdr.Msg_Type)) &
+                      " Payload=" & Result.Payload & "]");
       return Result;
    end To_Pong;
 
@@ -25,6 +30,9 @@ package body Converter.Msg_Converter is
    begin
       Result.Payload := Reverse_String (Msg.Payload);
       Result.Hdr.Msg_Type := Messages.Message_Types.Message_Type_Ping;
+      Put_Line ("[Msg_Converter::To_Ping] IN [Type=" & Integer'Image (Integer (Msg.Hdr.Msg_Type))&
+       " Payload=" &Msg.Payload & "]  ==> OUT [Type=" & Integer'Image (Integer (Result.Hdr.Msg_Type)) &
+                      " Payload=" & Result.Payload & "]");
       return Result;
    end To_Ping;
 
