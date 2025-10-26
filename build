@@ -1,2 +1,4 @@
 #!/bin/bash
+mkdir -p bin
+mkdir -p obj
 gprbuild -P bridge.gpr
