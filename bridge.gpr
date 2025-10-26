@@ -10,4 +10,8 @@ project Bridge is
       -- for Dot_Replacement use "/";
    end Naming;
 
+   package Compiler is
+      for Switches ("Ada") use ("-gnatX0");  -- enable GNAT extensions
+   end Compiler;
+
 end Bridge;
