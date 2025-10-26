@@ -4,7 +4,9 @@ with Interfaces;
 with Converter.Msg_Converter;
 with Messages.Message_Ping;
 with Messages.Message_Pong;
-procedure Main is
+with Codec.Ping;
+
+procedure Bridge is
    use Ada.Command_Line, Ada.Text_IO, Interfaces;
 
    function Payload4 (S : String) return String is
@@ -58,4 +60,4 @@ begin
          Put_Line ("Unsupported message type: " & Integer'Image (MT));
          Set_Exit_Status (1);
    end case;
-end Main;
+end Bridge;

@@ -1,0 +1,8 @@
+with "/usr/share/gpr/aunit.gpr";
+
+project Bridge_Tests extends "bridge.gpr" is
+   for Source_Dirs use ("test");
+   for Main use ("test_runner.adb");
+   for Object_Dir use "obj/tests";
+   for Exec_Dir use "bin";
+end Bridge_Tests;
