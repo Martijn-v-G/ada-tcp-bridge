@@ -1,0 +1,16 @@
+./bin/bridge 42000
+Listening on port  42000
+    ### Meanwhile on the terminal:
+    ### printf "\x01\x00HELO" | nc -q 0 127.0.0.1 42000
+Client connected from 127.0.0.1: 42000 
+Receive socket..
+Read_Last:  6
+Used =  6
+[Codec.Ping::Decode] Decoded header with Msg_Type: 1 (2 bytes)
+[Codec.Ping::Decode] Decoded payload with content: 'HELO' (4 bytes)
+Decoded Ping: HELO
+At end of decode, used =  0
+Receive socket..
+Read_Last:  0
+Client closed connection.
+Client disconnected, waiting for next...
