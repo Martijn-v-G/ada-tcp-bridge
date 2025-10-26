@@ -50,7 +50,7 @@ package body Codec.Ping is
          Msg.Hdr.Msg_Type := Low or High;
       end;
       I := I + 2;
-      Put_Line ("[COdec.Ping::Decode] Decoded header with Msg_Type:" & Integer'Image (Integer (Msg.Hdr.Msg_Type)) & " (2 bytes)");
+      Put_Line ("[Codec.Ping::Decode] Decoded header with Msg_Type:" & Integer'Image (Integer (Msg.Hdr.Msg_Type)) & " (2 bytes)");
 
       -- Decode payload (4 ASCII bytes)
       for J in Msg.Payload'Range loop
