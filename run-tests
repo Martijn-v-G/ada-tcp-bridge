@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir -p bin
+mkdir -p obj
+gprbuild -P bridge_tests.gpr
+./bin/test_runner
